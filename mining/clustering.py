@@ -15,7 +15,7 @@ from sklearn.cluster import DBSCAN as _DBSCAN
 from sklearn.cluster import KMeans as _KMeans
 from sklearn.decomposition import PCA
 
-from mining.evaluation import avaliar_clusterizacao
+from src.mining.evaluation import avaliar_clusterizacao
 
 # Diretório para salvar os gráficos
 PLOTS_DIR = "plots"
