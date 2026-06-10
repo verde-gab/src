@@ -19,7 +19,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.naive_bayes import GaussianNB
 
-from mining.evaluation import avaliar_classificacao, comparar_modelos
+from src.mining.evaluation import avaliar_classificacao, comparar_modelos
 
 
 def separar_dados(
