@@ -382,7 +382,9 @@ def menu_exportar(estado: dict):
 
 def _obter_df(estado: dict):
     """Retorna o DataFrame processado (se existir) ou o original."""
-    df = estado.get("df_processado") or estado.get("df_original")
+    df = estado.get("df_processado")
+    if df is None:
+        df = estado.get("df_original")
     if df is None:
         print("\n⚠️  Nenhum dataset carregado. Use a opção 1 primeiro.")
         return None
