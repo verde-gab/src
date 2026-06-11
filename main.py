@@ -223,8 +223,20 @@ def menu_visualizar(estado: dict):
 
 def menu_classificacao(estado: dict):
     """Menu de classificação supervisionada."""
-    df = _obter_df(estado)
-    if df is None:
+    if estado.get("df_processado") is None:
+        print("\n⚠️  Você precisa pré-processar os dados antes de executar a classificação.")
+        print("   Use a opção 3 (Pré-processar dados → Completo) para converter colunas")
+        print("   categóricas em numéricas e escalonar os dados.")
+        return
+
+    df = estado["df_processado"]
+
+    # Verificação de segurança: garantir que não há colunas de texto
+    colunas_texto = df.select_dtypes(include=["object", "string"]).columns.tolist()
+    if colunas_texto:
+        print(f"\n⚠️  O dataset ainda contém colunas de texto: {colunas_texto}")
+        print("   Os classificadores do sklearn exigem dados 100% numéricos.")
+        print("   Execute o pré-processamento completo (opção 3 → 1) antes.")
         return
 
     print("\n🎯  CLASSIFICAÇÃO SUPERVISIONADA")
@@ -272,9 +284,13 @@ def menu_classificacao(estado: dict):
 
 def menu_clusterizacao(estado: dict):
     """Menu de clusterização."""
-    df = _obter_df(estado)
-    if df is None:
+    if estado.get("df_processado") is None:
+        print("\n⚠️  Você precisa pré-processar os dados antes de executar a clusterização.")
+        print("   Use a opção 3 (Pré-processar dados → Completo) para converter colunas")
+        print("   categóricas em numéricas e escalonar os dados.")
         return
+
+    df = estado["df_processado"]
 
     # Usar apenas colunas numéricas para clusterização
     numericas, _ = detectar_tipos(df)
