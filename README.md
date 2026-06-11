@@ -1,7 +1,7 @@
 # Mineração de Dados — Ferramenta Geral
 
 Ferramenta interativa de mineração de dados para análise de qualquer dataset CSV.  
-**Grupo 6** — Disciplina de Inteligência Artificial.
+**Grupo 2** — Disciplina de Inteligência Computacional.
 
 ## 👥 Integrantes
 
@@ -169,4 +169,4 @@ O dataset `heart_disease.csv` contém 10.000 registros com 21 variáveis sobre s
 
 ## 📝 Licença
 
-Projeto acadêmico — Disciplina de Inteligência Artificial.
+Projeto acadêmico — Disciplina de Inteligência Computacional.
